@@ -97,3 +97,43 @@ TEST(tstack, string_data)
     s.push("world");
     ASSERT_EQ(s.peek(), "world");
 }
+
+TEST(tstack, assignment_operator) 
+{
+    Stack<int> s1;
+    s1.push(1);
+    s1.push(2);
+    Stack<int> s2;
+    s2 = s1; 
+    ASSERT_EQ(s2.get_size(), 2);
+    ASSERT_EQ(s2.peek(), 2);
+
+    s1.pop();  
+    ASSERT_EQ(s1.get_size(), 1);
+    ASSERT_EQ(s2.get_size(), 2);
+}
+
+TEST(tstack, self_assignment_operator)
+{
+    Stack<int> s1;
+    s1.push(1);
+    s1.push(2);
+    s1 = s1;
+    ASSERT_EQ(s1.get_size(), 1);
+    ASSERT_EQ(s1.peek(), 1);
+}
+
+TEST(tstack, copy_constructor) 
+{
+    Stack<int> s1;
+    s1.push(1);
+    s1.push(2);
+    Stack<int> s2 = s1; 
+    ASSERT_EQ(s2.get_size(), 2);
+    ASSERT_EQ(s1.peek(), 2);
+    ASSERT_EQ(s2.peek(), 2);
+
+    s1.pop();
+    ASSERT_EQ(s1.get_size(), 1);
+    ASSERT_EQ(s2.get_size(), 2);
+}
