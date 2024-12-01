@@ -119,8 +119,8 @@ TEST(tstack, self_assignment_operator)
     s1.push(1);
     s1.push(2);
     s1 = s1;
-    ASSERT_EQ(s1.get_size(), 1);
-    ASSERT_EQ(s1.peek(), 1);
+    ASSERT_EQ(s1.get_size(), 2);
+    ASSERT_EQ(s1.peek(), 2);
 }
 
 TEST(tstack, copy_constructor) 
